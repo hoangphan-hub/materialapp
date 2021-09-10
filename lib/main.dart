@@ -65,7 +65,9 @@ class _MyAppState extends State<MyApp> {
             children: [
               Text(
                 instruction,
-                style: TextStyle(fontSize: 32, color: instructionColor),
+                style: TextStyle(
+                  fontSize: 32, 
+                  color: instructionColor),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -89,7 +91,10 @@ class _MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 onPressed: changeLight,
-                child: Text('Next', style: TextStyle(fontSize: 20),),
+                child: Text(
+                  'Next', 
+                  style: TextStyle(fontSize: 20,),
+                ),
               ),
             ],
           ),
