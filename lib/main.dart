@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,26 @@ class _MyAppState extends State<MyApp> {
   String instruction = 'GO';
   Color? instructionColor = Colors.green[500];
 
+  int _counter = 10;
+  Timer? _timer;
+
+  void _startTimer() {
+    _counter = 10;
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        if (_counter > 0) {
+          _counter--;
+        } else {
+          _stopTimer();
+        }
+      });
+    });
+  }
+
+  void _stopTimer() {
+    _timer?.cancel();
+  }
+
   @override
   void initState() {
     light = 'GREEN';
@@ -25,6 +46,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   void changeLight() {
+    _startTimer();
     setState(() {
       if (light == 'GREEN') {
         light = 'YELLOW';
@@ -68,6 +90,13 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(
                   fontSize: 32, 
                   color: instructionColor),
+              ),
+              Text(
+                _counter.toString(),
+                style: TextStyle(
+                  fontSize: 32,
+                  color: instructionColor
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
