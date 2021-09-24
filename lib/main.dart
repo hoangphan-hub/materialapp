@@ -118,10 +118,29 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    children: [
+                      Icon(
+                        Icons.directions_walk,
+                        size: 100,
+                        color: Colors.red[turnOnLight('GREEN')],
+                      ),
+                      Icon(
+                        Icons.directions_walk,
+                        size: 100,
+                        color: Colors.green[turnOnLight('RED')],
+                      ),
+                    ],
+                  )
+                ],
+              ),
               ElevatedButton(
                 onPressed: changeLight,
                 child: Text(
-                  'Next', 
+                  'Start', 
                   style: TextStyle(fontSize: 20,),
                 ),
               ),
